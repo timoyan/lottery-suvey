@@ -21,10 +21,6 @@ code {
   border-radius: 5px;
 }
 
-.well p {
-  font-size:
-}
-
 .btn-group-justified {
   margin: 0 auto;
 }
@@ -294,8 +290,9 @@ header a {
 }
 
 .slotMachine{
-  width: 36.333333%;
-  border: 5px solid #CF5178;
+  width: 100%;
+  /* border: 5px solid #CF5178; */
+  font-size: 60px;
   height: 100px;
   display: inline-block;
 }
