@@ -7,170 +7,248 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=2.0">
   <link rel="icon" type="image/ico" href="./img/favicon.ico" />
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <link rel="stylesheet" href="./styles/style.css" type="text/css" media="screen" />
+  <link rel="stylesheet" href="./styles/bootstrap.min.css">
   <link rel="stylesheet" href="./dist/jquery.slotmachine.css" type="text/css" media="screen" />
 
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+  <script src="./dist/jquery-3.2.1.slim.min.js"></script>
+  <script src="./dist/bootstrap.min.js"></script>
   <script src="./dist/slotmachine.js"></script>
   <script src="./dist/jquery.slotmachine.js"></script>
 
   <style>
-    body{
+    body {
       height: 100vh;
+      display: flex;
+      flex-flow: column nowrap;
+      background-color: #458500;
+      position: relative;
     }
 
-    #casino{
-      height: 100%;
+    .btn-group-justified {
+      margin: 0 auto;
+    }
+
+    h1 {
+      text-align: center;
+      padding-bottom: 25px;
+    }
+
+    #machine-wrapper {
+      display: flex;
+      height: 50%;
+      flex-flow: row nowrap;
+      text-align: center;
+      background: url('./img/machine.png') no-repeat 50% 50%;
+      background-position-x: calc(50% + 30px);
+      min-height: 580px;
+      position: relative;
+    }
+
+    #machine-content {
+      position: absolute;
+      width: 300px;
+      border: 5px solid #CF5178;
+      font-size: 30px;
+      height: 65px;
+      display: inline-block;
+      vertical-align: middle;
+      text-align: center;
+      top: calc(50% - 20px);
+      left: calc(50% - 150px);
+    }
+
+    #winner-notification-wrapper {
+      align-self: center;
+      color: #ffffff;
+      display: inline-flex;
+      flex-flow: column nowrap;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #winner-notification-content-wrapper {
+      display: flex;
+      flex-flow: row nowrap;
+    }
+
+    #winner-notification-content-wrapper>h1 {
+      font-weight: bold;
+    }
+
+    #winner-name {
+      font-size: 100px;
+      border: lightgrey dashed 20px;
+      padding: 10px 20px;
+      min-width: 750px;
+      min-height: 210px;
+      margin: 0 60px;
+    }
+
+    #btnAccept,
+    #btnDonate {
+      background-color: white;
+      color: black;
+      border-radius: 50%;
+      width: 200px;
+      height: 200px;
+      text-align: center;
+      line-height: 200px;
+      font-size: 50px;
+      cursor: pointer;
+      position: relative;
+      animation: jump 5s infinite;
+    }
+
+    #btnAccept:hover {
+      background-color: lightblue;
+      color: white;
+      opacity: 0.7;
+      transition: .3s ease-in-out;
+    }
+
+    #btnDonate:hover {
+      background-color: lightcoral;
+      color: white;
+      opacity: 0.7;
+      transition: .3s ease-in-out;
+    }
+
+    #console-log {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 400px;
+      width: 500px;
+      background-color: black;
+      background-image: radial-gradient(rgba(0, 150, 0, 0.75), black 120%);
+      color: white;
+      font: 1.3rem Inconsolata, monospace;
+      text-shadow: 0 0 5px #C8C8C8;
+    }
+
+
+    @keyframes jump {
+      0% {
+        top: 0;
+      }
+
+      50% {
+        top: 50px;
+      }
+
+      100% {
+        top: 0;
+      }
     }
   </style>
 </head>
 
 <body>
+  <div id="winner-notification-wrapper">
+    <h1>Where is Lucky</h1>
 
-  <!-- Slot machine example -->
-  <div id="casino" style="padding-top:50px;">
-    <div class="content">
-      <h1>2019 iHerb Shanghai Anuual Celebration</h1>
-
-      <div>
-        <div id="casino1" class="slotMachine" style="margin-left: -65px;">
-          <div class="">1</div>
-          <div class="">2</div>
-          <div class="">3</div>
-          <div class="">4</div>
-          <div class="">5</div>
-          <div class="">6</div>
-          <div class="">7</div>
-          <div class="">8</div>
-          <div class="">9</div>
-          <div class="">10</div>
-          <div class="">11</div>
-          <div class="">12</div>
-          <div class="">13</div>
-          <div class="">14</div>
-          <div class="">15</div>
-          <div class="">16</div>
-          <div class="">17</div>
-          <div class="">18</div>
-          <div class="">19</div>
-          <div class="">20</div>
-          <div class="">21</div>
-          <div class="">22</div>
-          <div class="">23</div>
-          <div class="">24</div>
-          <div class="">25</div>
-          <div class="">26</div>
-          <div class="">27</div>
-          <div class="">28</div>
-          <div class="">29</div>
-          <div class="">30</div>
-          <div class="">31</div>
-          <div class="">32</div>
-          <div class="">33</div>
-          <div class="">34</div>
-          <div class="">35</div>
-          <div class="">36</div>
-          <div class="">37</div>
-          <div class="">38</div>
-          <div class="">39</div>
-          <div class="">40</div>
-          <div class="">41</div>
-          <div class="">42</div>
-          <div class="">43</div>
-          <div class="">44</div>
-          <div class="">45</div>
-          <div class="">46</div>
-          <div class="">47</div>
-          <div class="">48</div>
-          <div class="">49</div>
-          <div class="">50</div>
-          <div class="">51</div>
-          <div class="">52</div>
-          <div class="">53</div>
-          <div class="">54</div>
-          <div class="">55</div>
-          <div class="">56</div>
-          <div class="">57</div>
-          <div class="">58</div>
-          <div class="">59</div>
-          <div class="">60</div>
-          <div class="">61</div>
-          <div class="">62</div>
-          <div class="">63</div>
-          <div class="">64</div>
-          <div class="">65</div>
-          <div class="">66</div>
-          <div class="">67</div>
-          <div class="">68</div>
-          <div class="">69</div>
-          <div class="">70</div>
-          <div class="">71</div>
-          <div class="">72</div>
-          <div class="">73</div>
-          <div class="">74</div>
-          <div class="">75</div>
-          <div class="">76</div>
-          <div class="">77</div>
-          <div class="">78</div>
-          <div class="">79</div>
-          <div class="">80</div>
-          <div class="">81</div>
-          <div class="">82</div>
-          <div class="">83</div>
-          <div class="">84</div>
-          <div class="">85</div>
-          <div class="">86</div>
-          <div class="">87</div>
-          <div class="">88</div>
-          <div class="">89</div>
-          <div class="">90</div>
-          <div class="">91</div>
-          <div class="">92</div>
-          <div class="">93</div>
-          <div class="">94</div>
-          <div class="">95</div>
-          <div class="">96</div>
-          <div class="">97</div>
-          <div class="">98</div>
-          <div class="">99</div>
-        </div>
-        <div class="btn-group btn-group-justified" role="group">
-          <button id="casinoShuffle" type="button" class="btn btn-primary btn-lg">Shuffle!</button>
-          <button id="casinoStop" type="button" class="btn btn-primary btn-lg">Stop!</button>
-        </div>
-      </div>
+    <div id="winner-notification-content-wrapper">
+      <div id="btnAccept">Accept</div>
+      <div id="winner-name"></div>
+      <div id="btnDonate">Donate</div>
     </div>
 
   </div>
-  <script id="codeScript5">
-    let count = 0;
-    const btnShuffle = document.querySelector('#casinoShuffle');
-    const btnStop = document.querySelector('#casinoStop');
-    const casino1 = document.querySelector('#casino1');
-    const mCasino1 = new SlotMachine(casino1, {
+  <div id="machine-wrapper">
+    <div id="machine-content" class="slotMachine"></div>
+  </div>
+  <div class="btn-group btn-group-justified" role="group">
+    <button id="btnShuffle" type="button" class="btn btn-primary btn-lg">Shuffle!</button>
+    <button id="btnStop" type="button" class="btn btn-primary btn-lg">Stop!</button>
+    <button id="btnShowLog" type="button" class="btn btn-primary btn-lg">Show Log</button>
+  </div>
+
+  <div id="console-log">
+  </div>
+
+  <script>
+    const machineContentEl = document.querySelector('#machine-content');
+    const btnShuffleEl = document.querySelector('#btnShuffle');
+    const btnStopEl = document.querySelector('#btnStop');
+    const winnerNameEl = document.querySelector('#winner-name');
+    const btnAcceptEl = document.querySelector('#btnAccept');
+    const btnDonateEl = document.querySelector('#btnDonate');
+    const btnShowLogEl = document.querySelector('#btnShowLog');
+    const consoleLogEl = document.querySelector('#console-log');
+
+    const prizerList = [{ name: 'Timo Yan' }, { name: 'John Zeng' }];
+    const lotterList = [];
+
+    let currentActiveIndex = -1;
+
+    consoleLogEl.style.display = 'none';
+
+    for (let i = 0; i < 50; i++) {
+      lotterList.push({
+        name: `Yunqian Cheng`
+      })
+    };
+
+    machineContentEl.innerHTML = lotterList.map(item => `<div>${item.name}</div>`).join('');
+
+    const machine = new SlotMachine(machineContentEl, {
       active: 0,
-      delay: 1500
+      delay: 1500,
+      direction: 'down',
     });
 
+    function reset() {
+      btnAcceptEl.style.display = 'none';
+      btnDonateEl.style.display = 'none';
+      winnerNameEl.innerHTML = '';
+      currentActiveIndex = -1;
+    }
+
+    reset();
+
+    function onComplete(activeIndex) {
+      currentActiveIndex = activeIndex;
+      winnerNameEl.innerHTML = lotterList[activeIndex].name;
+      btnAcceptEl.style.display = 'block';
+      btnDonateEl.style.display = 'block';
+    }
+
+    btnShuffleEl.addEventListener('click', () => {
+      currentActiveIndex = -1;
+      machine.shuffle(9999);
+    });
+
+    btnStopEl.addEventListener('click', () => {
+      machine.stop(onComplete);
+    });
+
+    btnAcceptEl.addEventListener('click', () => {
+      prizerList.push(lotterList[currentActiveIndex]);
+      reset();
+      consoleLogEl.innerHTML = prizerList.map((item, i) => `<p>Round ${i + 1}, Lucky is "${item.name}"</p>`).join('');
+      consoleLogEl.style.display = 'block';
+    })
+
+    btnDonateEl.addEventListener('click', () => {
+      reset();
+    })
+
+    btnShowLogEl.addEventListener('click', () => {
+      if (consoleLogEl.style.display === 'none') {
+        consoleLogEl.style.display = 'block';
+        btnShowLogEl.innerHTML = 'Close Log';
+
+        consoleLogEl.innerHTML = prizerList.map((item, i) => `<p>Round ${i + 1}, Lucky is "${item.name}"</p>`).join('');
+      }
+      else {
+        consoleLogEl.style.display = 'none';
+        btnShowLogEl.innerHTML = 'Show Log';
+
+        consoleLogEl.innerHTML = '';
+      }
+    })
   </script>
-  <script id="codeScript6">
-    btnShuffle.addEventListener('click', () => {
 
-      mCasino1.shuffle(9999);
-
-    });
-
-    btnStop.addEventListener('click', () => {
-      mCasino1.stop();
-    });
-  </script>
 </body>
 
 </html>
